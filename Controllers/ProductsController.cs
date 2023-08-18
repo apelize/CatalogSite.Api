@@ -38,7 +38,7 @@ public class ProductsController : ControllerBase
         }
         catch (ArgumentException ex)
         {
-            return BadRequest("Нет такого типа товара");
+            return BadRequest(ex.Message);
         }
     }
 
