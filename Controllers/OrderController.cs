@@ -1,6 +1,7 @@
 using System.Text;
 using Entities;
 using Microsoft.AspNetCore.Mvc;
+using System.Text.Json;
 
 namespace Controllers;
 
@@ -18,15 +19,19 @@ public class OrderController : ControllerBase
     }
 
     [HttpPost]
-    public async Task<ActionResult> SendOrderNotificationAsync(Order order)
+    public async Task<ActionResult<string>> SendOrderNotificationAsync(Order order)
     {
         _client.DefaultRequestHeaders.Clear();
-        _client.DefaultRequestHeaders.Add("User-Agent", "Catalog Site");
-        StringBuilder orderString = new StringBuilder();
-        orderString.AppendLine("Новый заказ").AppendLine($"Телефон: {order.PhoneNumber}").Append("Товары: ").AppendJoin(",", order.ProductList);
-        _logger.LogInformation(orderString.ToString());
+        var request = new
+        {
+            Время = DateTime.Now.ToShortDateString() + " " + DateTime.Now.ToShortTimeString(),
+            Телефон = order.PhoneNumber,        
+            Товары = string.Join(",", order.ProductList)
+        };
 
-        var responce = await _client.PostAsync($"https://v1.nocodeapi.com/apelize/telegram/OXWeJwKWyDfcFGhc/sendText?text={orderString}", new StringContent(""));
+        _logger.LogInformation("Order Phone: {0}, Products: {1}", order.PhoneNumber, string.Join(",", order.ProductList));
+
+        var responce = await _client.PostAsJsonAsync($"https://v1.nocodeapi.com/apelize/telegram/OXWeJwKWyDfcFGhc", request);
         return Ok();
     }
 }
