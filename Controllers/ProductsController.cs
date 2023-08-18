@@ -11,21 +11,24 @@ namespace Controllers;
 public class ProductsController : ControllerBase
 {
     private readonly IRepository<Product> _productsRepository;
-
-    public ProductsController(IRepository<Product> repository)
+    private readonly ILogger<ProductsController> _logger;
+    public ProductsController(IRepository<Product> repository, ILogger<ProductsController> logger)
     {
         _productsRepository = repository;
+        _logger = logger;
     }
 
     [HttpGet]
     public async Task<ActionResult<IEnumerable<ProductDTO>>> GetProductsAsync()
     {
+        _logger.LogInformation("Get all request");
         return Ok((await _productsRepository.GetAllAsync()).Select(item => item.AsProductDTO()));
     }
 
     [HttpPost]
     public async Task<ActionResult<Product>> CreateProductAsync(ProductDTO product)
     {
+        _logger.LogInformation("Post request");
         try
         {
             Product newProduct = product.Type switch
