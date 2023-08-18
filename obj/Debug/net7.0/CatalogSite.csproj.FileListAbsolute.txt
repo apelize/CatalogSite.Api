@@ -44,3 +44,13 @@ C:\projects\CatalogSite\obj\Debug\net7.0\refint\CatalogSite.dll
 C:\projects\CatalogSite\obj\Debug\net7.0\CatalogSite.pdb
 C:\projects\CatalogSite\obj\Debug\net7.0\CatalogSite.genruntimeconfig.cache
 C:\projects\CatalogSite\obj\Debug\net7.0\ref\CatalogSite.dll
+C:\projects\CatalogSite\bin\Debug\net7.0\Microsoft.Extensions.DependencyModel.dll
+C:\projects\CatalogSite\bin\Debug\net7.0\Serilog.dll
+C:\projects\CatalogSite\bin\Debug\net7.0\Serilog.AspNetCore.dll
+C:\projects\CatalogSite\bin\Debug\net7.0\Serilog.Extensions.Hosting.dll
+C:\projects\CatalogSite\bin\Debug\net7.0\Serilog.Extensions.Logging.dll
+C:\projects\CatalogSite\bin\Debug\net7.0\Serilog.Formatting.Compact.dll
+C:\projects\CatalogSite\bin\Debug\net7.0\Serilog.Settings.Configuration.dll
+C:\projects\CatalogSite\bin\Debug\net7.0\Serilog.Sinks.Console.dll
+C:\projects\CatalogSite\bin\Debug\net7.0\Serilog.Sinks.Debug.dll
+C:\projects\CatalogSite\bin\Debug\net7.0\Serilog.Sinks.File.dll
