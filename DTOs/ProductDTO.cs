@@ -1,3 +1,3 @@
 namespace DTO;
 
-public record ProductDTO(string Name, string Description,string Type, double Price);
+public record ProductDTO(string ProductId, string ProductName, string ProductDescription,string ProductType, string ProductImage, double ProductPrice);

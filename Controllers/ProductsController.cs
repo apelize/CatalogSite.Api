@@ -31,9 +31,9 @@ public class ProductsController : ControllerBase
         _logger.LogInformation("Post request");
         try
         {
-            Product newProduct = product.Type switch
+            Product newProduct = product.ProductType switch
             {
-                "Факел" => new Torch(product.Name, product.Description, product.Price),
+                "Факел" => new Torch(product.ProductName, product.ProductDescription, product.ProductImage, product.ProductPrice),
                 _ => throw new ArgumentException("Неизвестный тип продукта")
             };
             await _productsRepository.CreateAsync(newProduct);
