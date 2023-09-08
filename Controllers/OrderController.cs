@@ -25,13 +25,13 @@ public class OrderController : ControllerBase
         var request = new
         {
             Время = DateTime.Now.ToShortDateString() + " " + DateTime.Now.ToShortTimeString(),
-            Телефон = order.PhoneNumber,        
+            Телефон = order.PhoneNumber,
             Товары = string.Join(",", order.ProductList)
         };
 
         _logger.LogInformation("Order Phone: {0}, Products: {1}", order.PhoneNumber, string.Join(",", order.ProductList));
-
-        var responce = await _client.PostAsJsonAsync($"https://v1.nocodeapi.com/apelize/telegram/OXWeJwKWyDfcFGhc", request);
+        _logger.LogInformation(Environment.GetEnvironmentVariable("Notification_URL"));
+        var responce = await _client.PostAsJsonAsync(Environment.GetEnvironmentVariable("Notification_URL"), request);
         return Ok();
     }
 }

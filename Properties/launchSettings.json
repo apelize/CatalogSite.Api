@@ -16,6 +16,7 @@
       "launchUrl": "swagger",
       "applicationUrl": "http://localhost:5056",
       "environmentVariables": {
+        "Notification_URL": "https://v1.nocodeapi.com/apelize/telegram/OXWeJwKWyDfcFGhc",
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
     },

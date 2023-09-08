@@ -6,6 +6,9 @@
 #logs
 *.log
 
+#launch settings
+launchSettings.json
+
 #settings
 appsettings.Development.json
 appsettings.json

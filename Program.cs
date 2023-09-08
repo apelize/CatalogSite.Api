@@ -23,7 +23,6 @@ builder.Services.AddControllers(options =>
 });
 
 
-
 var app = builder.Build();
 
 if (app.Environment.IsDevelopment())
